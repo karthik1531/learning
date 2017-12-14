@@ -1,5 +1,4 @@
 const http = require('http');
-const http = require('http');
 const fs = require('fs');
 
 const hostname = '192.168.1.10';
