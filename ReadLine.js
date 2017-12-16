@@ -1,26 +1,21 @@
-const http = require('http');
 const fs = require('fs');
-
-const hostname = '192.168.1.10';
-const port = '2000';
+const { StringDecoder } = require('string_decoder');
+const decoder = new StringDecoder('utf8');
 
 fs.readFile('test.txt', (err, text) => {
 	if(err){
 		callback(new Error('something bad happened'));
 	}
 	
-
-	const server= http.createServer((req, res) => {
-		res.statusCode = 200;
-		res.setHeader('Content-type','textplain');
-		res.write(text);
-		res.end();
-	});
+	else{ 
+		
+		console.log(decoder.write(text));
+	 
+	}	
+		
+	});	
+	
 
 	
 
-	server.listen(port,hostname, () => {
-		console.log('Server started on port '+port);
-	});
-});
 
