@@ -2,7 +2,7 @@ const fs = require('fs');
 const { StringDecoder } = require('string_decoder');
 const decoder = new StringDecoder('utf8');
 
-fs.readFile('test.txt', (err, text) => {
+fs.readFile('data/test.txt', (err, text) => {
 	if(err){
 		callback(new Error('something bad happened'));
 	}
