@@ -1,21 +1,23 @@
 const fs = require('fs');
-const { StringDecoder } = require('string_decoder');
-const decoder = new StringDecoder('utf8');
+const parse = require('CSV-parse');
+const input = 'data/simple.csv';
 
-fs.readFile('data/test.txt', (err, text) => {
+const parser = parse({delimiter: ','}, function(err, text) {
 	if(err){
 		callback(new Error('something bad happened'));
 	}
 	
 	else{ 
 		
-		console.log(decoder.write(text));
+		text.forEach(function(line){
+				console.log(line)
 	 
-	}	
+		});
 		
+	}		
 	});	
 	
-
+fs.createReadStream(input).pipe(parser);
 	
 
 
