@@ -8,9 +8,10 @@ function displayRows(pArrRows) {
 		if(item.length > 0){
 			console.log(item);
 		}
-		
 	});
+
 }
+
 
 function final(){
 	console.log('------');
@@ -21,10 +22,11 @@ function final(){
 fs.createReadStream("data/simple.csv")
 
 	.pipe(parse({delimiter: ','}))
-	
+
 	.on('data', function(arrRows) {
 		displayRows(arrRows);
 	})
 	.on('end', function() {
 		final();
+
 	});
