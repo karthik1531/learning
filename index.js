@@ -12,6 +12,11 @@ function displayRows(pArrRows) {
 	});
 }
 
+function final(){
+	console.log('------');
+	console.log('DATA Finished');
+}
+
 
 fs.createReadStream("data/simple.csv")
 
@@ -21,6 +26,5 @@ fs.createReadStream("data/simple.csv")
 		displayRows(arrRows);
 	})
 	.on('end', function() {
-		console.log('------');
-		console.log('DATA Finished');
+		final();
 	});
